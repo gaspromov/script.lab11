@@ -1,0 +1,23 @@
+<div class="container">
+        <div class="card-body">
+          <h5 class = "card-title">
+            Онлайн: <input type="checkbox" checked #status>
+          </h5>
+          <p class="class-text">Имя: <input type="text" value="Имя" #name></p>
+          <button (click)="addSensor(name, status)">Добавить элемент</button>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3 mt-4" *ngFor = "let sensor of sensors; let s_index = index;">
+      <div class="card" [ngClass] = "{'bg-success': sensor.status === true,
+       'bg-danger': sensor.status === false}">
+        <div class="card card-header" >
+          <h5>{{sensor.id}}</h5>
+        </div>
+        <div class="card card-body">
+          <p>{{sensor.name}}</p>
+          <button class = 'btn btn-warning' (click) = "onDeleteSensor(s_index)">Удалить</button>
+        </div>
+      </div>
+    </div>
+  </div>
